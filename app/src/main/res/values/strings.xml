@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Lebre</string>
+    <string name="login_logo">Lebre</string>
+    <string name="signIn">SIGN IN</string>
+    <string name="email_input">Email</string>
+    <string name="email_icon"></string>
+    <string name="senha_input">Senha</string>
+    <string name="senha_icon"></string>
+    <string name="button_login">Login</string>
+    <string name="senha_reccover_input">Esqueceu sua senha?</string>
 </resources>
