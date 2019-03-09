@@ -2,10 +2,21 @@
     <string name="app_name">Lebre</string>
     <string name="login_logo">Lebre</string>
     <string name="signIn">SIGN IN</string>
+    <string name="signUp">SIGN UP</string>
     <string name="email_input">Email</string>
-    <string name="email_icon"></string>
     <string name="senha_input">Senha</string>
+
+    <string name="full_name">Nome completo</string>
+    <string name="phone_number">Telefone</string>
+    <string name="estado">Estado</string>
+    <string name="cidade">Cidade</string>
+    <string name="email_icon"></string>
+    <string name="finalizar">Finalizar</string>
+
+    <string name="senha_confirmar">Confirmar senha</string>
     <string name="senha_icon"></string>
     <string name="button_login">Login</string>
-    <string name="senha_reccover_input">Esqueceu sua senha?</string>
+    <string name="button_cadastro">Cadastrar</string>
+    <string name="senha_recover_input">Esqueceu sua senha?</string>
+    <string name="nova_conta_button">Novo no Lebre? Crie uma conta aqui.</string>
 </resources>

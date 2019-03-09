@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signup">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2a3950"
+        tools:context=".login">
+
+        <EditText
+            android:id="@+id/confirmar_senha_input"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="35dp"
+            android:autofillHints=""
+            android:backgroundTint="@color/GoldenHace"
+            android:ems="10"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/senha_confirmar"
+            android:inputType="textPassword"
+            android:textColor="@color/HintText"
+            android:textColorHint="@color/HintText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toEndOf="@+id/senha_icon"
+            app:layout_constraintTop_toBottomOf="@+id/nova_senha_input" />
+
+        <ImageView
+            android:id="@+id/confirmar_senha_icon"
+            android:layout_width="33dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="3dp"
+            android:contentDescription="@string/senha_icon"
+            app:layout_constraintEnd_toStartOf="@+id/nova_senha_input"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/confirmar_senha_input"
+            app:srcCompat="@drawable/ic_lock_24px" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/GoldenHace"
+            app:layout_constraintBottom_toBottomOf="@+id/signin_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/signin_text"
+            app:layout_constraintTop_toTopOf="@+id/signin_text" />
+
+        <TextView
+            android:id="@+id/login_logo"
+            android:layout_width="229dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="48dp"
+            android:fontFamily="cursive"
+            android:text="@string/login_logo"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="100sp"
+            android:typeface="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="12dp"
+            android:background="@color/GoldenHace"
+            android:backgroundTint="@color/GoldenHace"
+            app:layout_constraintBottom_toBottomOf="@+id/signin_text"
+            app:layout_constraintEnd_toStartOf="@+id/signin_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/signin_text" />
+
+        <TextView
+            android:id="@+id/signin_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="@string/signUp"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_logo" />
+
+        <EditText
+            android:id="@+id/novo_email_input"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="35dp"
+            android:autofillHints=""
+            android:backgroundTint="@color/GoldenHace"
+            android:ems="10"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/email_input"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:textColor="@color/HintText"
+            android:textColorHint="@color/HintText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/email_icon"
+            app:layout_constraintTop_toBottomOf="@+id/signin_text" />
+
+        <ImageView
+            android:id="@+id/email_icon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/email_icon"
+            app:layout_constraintEnd_toStartOf="@+id/novo_email_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/novo_email_input"
+            app:srcCompat="@drawable/ic_email_24px" />
+
+        <EditText
+            android:id="@+id/nova_senha_input"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="35dp"
+            android:autofillHints=""
+            android:backgroundTint="@color/GoldenHace"
+            android:ems="10"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/senha_input"
+            android:inputType="textPassword"
+            android:textColor="@color/HintText"
+            android:textColorHint="@color/HintText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/senha_icon"
+            app:layout_constraintTop_toBottomOf="@+id/novo_email_input" />
+
+        <ImageView
+            android:id="@+id/senha_icon"
+            android:layout_width="33dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="3dp"
+            android:contentDescription="@string/senha_icon"
+            app:layout_constraintEnd_toStartOf="@+id/nova_senha_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nova_senha_input"
+            app:srcCompat="@drawable/ic_lock_24px" />
+
+        <Button
+            android:id="@+id/cadastrar_button"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="35dp"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/button_cadastro"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp"
+            android:typeface="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirmar_senha_input" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/login_logo2"
+        android:layout_width="229dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="cursive"
+        android:text="@string/login_logo"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="100sp"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
