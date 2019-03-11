@@ -64,7 +64,7 @@
             android:layout_width="229dp"
             android:layout_height="130dp"
             android:layout_marginStart="48dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="48dp"
             android:fontFamily="cursive"
             android:text="@string/login_logo"
@@ -93,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/roboto_condensed_bold"
             android:text="@string/signUp"
@@ -175,7 +175,7 @@
             android:layout_width="326dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="35dp"
             android:background="@drawable/rounded_button"
             android:fontFamily="@font/roboto_medium"
@@ -191,20 +191,4 @@
 
     </android.support.constraint.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/login_logo2"
-        android:layout_width="229dp"
-        android:layout_height="130dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="48dp"
-        android:fontFamily="cursive"
-        android:text="@string/login_logo"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_light"
-        android:textSize="100sp"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

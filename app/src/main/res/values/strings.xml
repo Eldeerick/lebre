@@ -12,6 +12,7 @@
     <string name="cidade">Cidade</string>
     <string name="email_icon"></string>
     <string name="finalizar">Finalizar</string>
+    <string name="cpf">CPF</string>
 
     <string name="senha_confirmar">Confirmar senha</string>
     <string name="senha_icon"></string>
