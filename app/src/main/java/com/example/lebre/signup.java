@@ -9,13 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class signup extends AppCompatActivity {
+
+    ArrayList<Usuario> usuariosList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        Alerta(getApplicationContext(), "Digite uma senha com no mínimo 8 caracteres.");
 
         Button cadastro = findViewById(R.id.cadastrar_button);
 
@@ -30,20 +33,30 @@ public class signup extends AppCompatActivity {
                 String senha_content = senha.getText().toString();
                 String confirmar_senha_content = confirmSenha.getText().toString();
 
-                if(senha_content.length() < 8 || senha_content.isEmpty())
-                    Alerta(getApplicationContext(), "Digite uma senha com no mínimo 8 caracteres.");
-                else {
-                    if (senha_content.equals(confirmar_senha_content)) {
-                        Usuario novoUsuario = new Usuario(email_content, senha_content);
+                Gerenciamento_Arquivo.LerUsuarioNoSD(getApplicationContext(), signup.this, usuariosList);
 
-                        Bundle args = new Bundle();
-                        args.putSerializable("novoUsuario", novoUsuario);
+                Usuario verificaEmail = Gerenciamento_Arquivo.VerificaUsuarioArrayList(usuariosList, email_content);
 
-                        Intent intent = new Intent(signup.this, signup_personal_info.class);
-                        intent.putExtra("Usuario", args);
+                if (verificaEmail == null) {
+                    if (senha_content.length() > 8) {
+                        if (senha_content.equals(confirmar_senha_content)) {
+                            Usuario novoUsuario = new Usuario(email_content, senha_content);
 
-                        startActivity(intent);
+                            Bundle args = new Bundle();
+                            args.putSerializable("novoUsuario", novoUsuario);
+
+                            Intent intent = new Intent(signup.this, signup_personal_info.class);
+                            intent.putExtra("Usuario", args);
+
+                            startActivity(intent);
+                        } else {
+                            Alerta(getApplicationContext(), "Verifique se as senhas são iguais.");
+                        }
+                    } else {
+                        Alerta(getApplicationContext(), "Digite uma senha com no mínimo 8 caracteres.");
                     }
+                }else{
+                    Alerta(getApplicationContext(), "O email já está cadastrado.");
                 }
             }
         });

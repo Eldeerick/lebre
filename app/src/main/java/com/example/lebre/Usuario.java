@@ -1,6 +1,4 @@
 package com.example.lebre;
-import android.content.Context;
-import android.widget.Toast;
 
 import java.io.Serializable;
 
@@ -13,9 +11,23 @@ public class Usuario implements  Serializable{
     private String cidade = "";
     private String telefone = "";
 
+    public Usuario(){
+
+    }
+
     public Usuario(String email, String senha){
         this.email = email;
         this.senha = senha;
+    }
+
+    public Usuario(String email, String senha, String nomeCompleto, String cpf, String telefone, String estado, String cidade){
+        this.email = email;
+        this.senha = senha;
+        this.nomeCompleto = nomeCompleto;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.estado = estado;
+        this.cidade = cidade;
     }
 
     public void setUsuarioInfo(String nomeCompleto, String cpf, String telefone, String estado, String cidade){
@@ -27,10 +39,10 @@ public class Usuario implements  Serializable{
     }
 
     public String getAllInfo(){
-        return "\n" + this.getEmail() + ";"
+        return  this.getEmail() + ";"
                 + this.getSenha() + ";" + this.getNomeCompleto() + ";"
                 + this.getCpf() + ";" + this.getTelefone() + ";"
-                + this.getEstado() + ";" +this.getCidade() + ";";
+                + this.getEstado() + ";" +this.getCidade() + ";" +"\n";
     }
 
 
