@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -34,6 +35,8 @@ public class login extends AppCompatActivity {
                 String getSenha = senha.getText().toString();
 
                 Usuario usuario = new Usuario(getEmail, getSenha);
+
+
 
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
