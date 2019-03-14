@@ -1,36 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup">
+    android:orientation="vertical"
+    tools:context=".signup"
+    android:background="#2a3950">
 
-    <android.support.constraint.ConstraintLayout
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_alignParentTop="true"
+    android:padding="35dp"
+    tools:context=".signup"
+    android:background="#2a3950">
+    <TextView
+        android:id="@+id/textViewConta"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#2a3950"
-        tools:context=".login"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="86dp">
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:text="@string/textViewConta"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
 
-        <TextView
-            android:id="@+id/login_logo"
-            android:layout_width="229dp"
-            android:layout_height="130dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="48dp"
-            android:fontFamily="cursive"
-            android:text="@string/login_logo"
-            android:textAlignment="center"
-            android:textColor="@android:color/background_light"
-            android:textSize="100sp"
-            android:typeface="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/GoldenHace"
+        android:backgroundTint="@color/GoldenHace"/>
 
-    </android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/novo_email_input"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColorHint="@color/HintText"
+        app:errorEnabled="true"
+        >
 
-</android.support.constraint.ConstraintLayout>
+        <android.support.design.widget.TextInputEditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="@string/email_input"
+            android:textColor="@color/HintText"
+            android:backgroundTint="@color/GoldenHace"
+            android:inputType="textEmailAddress"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/novo_senha_input"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColorHint="@color/HintText"
+        app:errorEnabled="true"
+        app:passwordToggleEnabled="true"
+        >
+        <android.support.design.widget.TextInputEditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="@string/senha_input"
+            android:textColor="@color/HintText"
+            android:backgroundTint="@color/GoldenHace"
+            android:inputType="textPassword"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/confirmar_senha_input"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColorHint="@color/HintText"
+        app:errorEnabled="true"
+        app:passwordToggleEnabled="true">
+        <android.support.design.widget.TextInputEditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="@string/senha_confirmar"
+            android:textColor="@color/HintText"
+            android:backgroundTint="@color/GoldenHace"
+            android:inputType="textPassword"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/textViewInfoPessoal2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:text="@string/textViewInfoPessoal"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/GoldenHace"
+        android:backgroundTint="@color/GoldenHace"
+        />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/nome_completo_input"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColorHint="@color/HintText"
+        app:errorEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="@string/full_name"
+            android:textColor="@color/HintText"
+            android:textColorHint="@color/HintText"
+            android:backgroundTint="@color/GoldenHace"
+            android:inputType="textPersonName"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/cpf_input"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColorHint="@color/HintText"
+        android:textColor="@color/HintText"
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="11">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="@string/cpf"
+            android:backgroundTint="@color/GoldenHace"
+            android:inputType="number"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/phone_input"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColorHint="@color/HintText"
+        app:errorEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/GoldenHace"
+            android:hint="@string/phone_number"
+            android:inputType="phone"
+            android:textColor="@color/HintText" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/estado_input"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColorHint="@color/HintText"
+        app:errorEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/GoldenHace"
+            android:hint="@string/estado"
+            android:inputType="textCapWords"
+            android:textColor="@color/HintText" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/cidade_input"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColorHint="@color/HintText"
+        app:errorEnabled="true"
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/GoldenHace"
+            android:hint="@string/cidade"
+            android:inputType="textCapWords"
+            android:textColor="@color/HintText" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/finalizar_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rounded_button_nobackground"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/finalizar"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:onClick="Finalizar"
+        android:typeface="normal" />
+</LinearLayout>
+</ScrollView>

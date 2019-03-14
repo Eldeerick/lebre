@@ -24,7 +24,7 @@ public class Gerenciamento_Arquivo {
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-    public static void gravarUsuarioNoSD(Context context, Activity activity, String conteudo) {
+    public static void gravarUsuarioNoSD(Activity activity, String conteudo) {
         verificarPermissoes(activity);
         try {
             File root = new File(Environment.getExternalStorageDirectory(), diretorio);
@@ -39,14 +39,12 @@ public class Gerenciamento_Arquivo {
             writer.append(conteudo);
             writer.flush();
             writer.close();
-
-            Toast.makeText(context, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
-            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+
         }
     }
 
-    public static ArrayList LerUsuarioNoSD(Context context, Activity activity, ArrayList<Usuario> usuariosList){
+    public static ArrayList LerUsuarioNoSD(Activity activity, ArrayList<Usuario> usuariosList){
         String email;
         String senha;
         String nomeCompleto;
@@ -82,9 +80,9 @@ public class Gerenciamento_Arquivo {
             reader.close();
             br.close();
         }catch(IOException e){
-            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+
         }catch (Exception e){
-            Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
         }
 
         return usuariosList;

@@ -14,11 +14,11 @@
         android:layout_marginStart="12dp"
         android:layout_marginEnd="8dp"
         android:background="@color/GoldenHace"
-        app:layout_constraintBottom_toBottomOf="@+id/signin_text"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewConta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/signin_text"
-        app:layout_constraintTop_toTopOf="@+id/signin_text" />
+        app:layout_constraintStart_toEndOf="@+id/textViewConta"
+        app:layout_constraintTop_toTopOf="@+id/textViewConta" />
 
     <Button
         android:id="@+id/newUsuario_button"
@@ -27,13 +27,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="105dp"
         android:layout_marginEnd="8dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/rounded_button_nobackground"
         android:elevation="0dp"
         android:fontFamily="@font/roboto"
         android:text="@string/nova_conta_button"
         android:textColor="@android:color/background_light"
-        android:textSize="12sp"
-        android:textStyle=""
+        android:textSize="14sp"
+        android:paddingHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,20 +62,20 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="12dp"
         android:background="@color/GoldenHace"
-        app:layout_constraintBottom_toBottomOf="@+id/signin_text"
-        app:layout_constraintEnd_toStartOf="@+id/signin_text"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewConta"
+        app:layout_constraintEnd_toStartOf="@+id/textViewConta"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/signin_text" />
+        app:layout_constraintTop_toTopOf="@+id/textViewConta" />
 
     <TextView
-        android:id="@+id/signin_text"
+        android:id="@+id/textViewConta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/roboto_condensed_bold"
-        android:text="@string/signIn"
+        android:text="@string/logIn"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
@@ -103,7 +103,7 @@
         android:backgroundTint="@color/GoldenHace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/email_icon"
-        app:layout_constraintTop_toBottomOf="@+id/signin_text" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewConta" />
 
     <ImageView
         android:id="@+id/email_icon"
@@ -111,7 +111,6 @@
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:contentDescription="@string/email_icon"
         app:layout_constraintEnd_toStartOf="@+id/email_input"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/email_input"
@@ -156,7 +155,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="35dp"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/rounded_button_nobackground"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/button_login"
         android:textAlignment="center"

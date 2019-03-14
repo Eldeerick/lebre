@@ -22,7 +22,7 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Button login = findViewById(R.id.login_button);
-        Button newUsuario = findViewById(R.id.newUsuario_button);
+        Button cadastro = findViewById(R.id.newUsuario_button);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +34,7 @@ public class login extends AppCompatActivity {
                 String getSenha = senha.getText().toString();
 
                 try {
-                Gerenciamento_Arquivo.LerUsuarioNoSD(getApplicationContext(), login.this, usuariosList);
+                Gerenciamento_Arquivo.LerUsuarioNoSD(login.this, usuariosList);
                 Usuario usuarioLogin;
 
                 usuarioLogin = Gerenciamento_Arquivo.VerificaUsuarioArrayList(usuariosList, getEmail, getSenha);
@@ -43,7 +43,7 @@ public class login extends AppCompatActivity {
                         Alerta(getApplicationContext(), " Não encontrado, tente novamente ou cadastre-se.");
                     } else {
                         Alerta(getApplicationContext(), "Seja Bem-Vindo!");
-                        Intent i = new Intent(login.this, signup_personal_info.class);
+                        Intent i = new Intent(login.this, signup.class);
                         startActivity(i);
                     }
                 }catch(Exception e){
@@ -52,13 +52,15 @@ public class login extends AppCompatActivity {
             }
         });
 
-        newUsuario.setOnClickListener(new View.OnClickListener() {
+        try {cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent = new Intent(login.this, signup_personal_info.class);
+            Intent intent = new Intent(login.this, signup.class);
             startActivity(intent);
             }
-        });
+        });} catch(Exception e){
+            Alerta(login.this, e.getLocalizedMessage());
+        }
     }
 
     public void Alerta(Context context, String mensagem){
