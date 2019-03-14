@@ -43,7 +43,7 @@ public class login extends AppCompatActivity {
                         Alerta(getApplicationContext(), " Não encontrado, tente novamente ou cadastre-se.");
                     } else {
                         Alerta(getApplicationContext(), "Seja Bem-Vindo!");
-                        Intent i = new Intent(login.this, signup.class);
+                        Intent i = new Intent(login.this, signup_personal_info.class);
                         startActivity(i);
                     }
                 }catch(Exception e){
@@ -55,11 +55,10 @@ public class login extends AppCompatActivity {
         newUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent = new Intent(login.this, signup.class);
+            Intent intent = new Intent(login.this, signup_personal_info.class);
             startActivity(intent);
             }
         });
-
     }
 
     public void Alerta(Context context, String mensagem){

@@ -20,7 +20,7 @@ public class signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        Button cadastro = findViewById(R.id.cadastrar_button);
+        /*Button cadastro = findViewById(R.id.cadastrar_button);
 
         cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,7 +38,7 @@ public class signup extends AppCompatActivity {
                 Usuario verificaEmail = Gerenciamento_Arquivo.VerificaUsuarioArrayList(usuariosList, email_content);
 
                 if (verificaEmail == null) {
-                    if (senha_content.length() > 8) {
+                    if (senha_content.length() > 5) {
                         if (senha_content.equals(confirmar_senha_content)) {
                             Usuario novoUsuario = new Usuario(email_content, senha_content);
 
@@ -53,13 +53,13 @@ public class signup extends AppCompatActivity {
                             Alerta(getApplicationContext(), "Verifique se as senhas são iguais.");
                         }
                     } else {
-                        Alerta(getApplicationContext(), "Digite uma senha com no mínimo 8 caracteres.");
+                        Alerta(getApplicationContext(), "Digite uma senha com no mínimo 6 caracteres.");
                     }
                 }else{
                     Alerta(getApplicationContext(), "O email já está cadastrado.");
                 }
             }
-        });
+        });*/
     }
 
     public void Alerta(Context context, String mensagem){

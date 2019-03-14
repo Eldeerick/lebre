@@ -11,10 +11,6 @@ public class Usuario implements  Serializable{
     private String cidade = "";
     private String telefone = "";
 
-    public Usuario(){
-
-    }
-
     public Usuario(String email, String senha){
         this.email = email;
         this.senha = senha;

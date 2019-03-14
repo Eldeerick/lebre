@@ -24,7 +24,7 @@ public class Gerenciamento_Arquivo {
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-    public static void gravarUsuarioNoSD(Context context, Activity activity, String sBody) {
+    public static void gravarUsuarioNoSD(Context context, Activity activity, String conteudo) {
         verificarPermissoes(activity);
         try {
             File root = new File(Environment.getExternalStorageDirectory(), diretorio);
@@ -36,11 +36,11 @@ public class Gerenciamento_Arquivo {
 
             File file = new File(root, nomeArquivo);
             FileWriter writer = new FileWriter(file, true);
-            writer.append(sBody);
+            writer.append(conteudo);
             writer.flush();
             writer.close();
 
-            Toast.makeText(context, "Usuario cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -54,6 +54,7 @@ public class Gerenciamento_Arquivo {
         String telefone;
         String estado;
         String cidade;
+
         verificarPermissoes(activity);
         try{
             File root = new File(Environment.getExternalStorageDirectory(), diretorio);
