@@ -14,7 +14,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_alignParentTop="true"
-    android:padding="35dp"
+    android:padding="30dp"
     tools:context=".signup"
     android:background="#2a3950">
     <TextView
@@ -47,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textColorHint="@color/HintText"
+        android:paddingTop="10dp"
         app:errorEnabled="true"
         >
 
@@ -66,6 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textColorHint="@color/HintText"
+        android:paddingTop="10dp"
         app:errorEnabled="true"
         app:passwordToggleEnabled="true"
         >
@@ -84,6 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textColorHint="@color/HintText"
+        android:paddingTop="10dp"
         app:errorEnabled="true"
         app:passwordToggleEnabled="true">
         <android.support.design.widget.TextInputEditText
@@ -126,6 +129,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textColorHint="@color/HintText"
+        android:paddingTop="10dp"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
@@ -135,7 +139,7 @@
             android:textColor="@color/HintText"
             android:textColorHint="@color/HintText"
             android:backgroundTint="@color/GoldenHace"
-            android:inputType="textPersonName"
+            android:inputType="textCapWords"
             />
     </android.support.design.widget.TextInputLayout>
 
@@ -144,15 +148,17 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textColorHint="@color/HintText"
-        android:textColor="@color/HintText"
+        android:paddingTop="10dp"
         app:errorEnabled="true"
         app:counterEnabled="true"
-        app:counterMaxLength="11">
+        app:counterMaxLength="11"
+        >
 
         <android.support.design.widget.TextInputEditText
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="@string/cpf"
+            android:textColor="@color/HintText"
             android:backgroundTint="@color/GoldenHace"
             android:inputType="number"
             />
@@ -163,6 +169,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textColorHint="@color/HintText"
+        android:paddingTop="10dp"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
@@ -179,6 +186,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textColorHint="@color/HintText"
+        android:paddingTop="10dp"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
@@ -195,6 +203,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textColorHint="@color/HintText"
+        android:paddingTop="10dp"
         app:errorEnabled="true"
         >
 
@@ -209,6 +218,7 @@
 
     <Button
         android:id="@+id/finalizar_button"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
