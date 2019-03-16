@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
 
@@ -40,6 +42,26 @@ public class Signup extends AppCompatActivity {
 
     }
 
+    TextWatcher watch = new TextWatcher(){
+
+        @Override
+        public void afterTextChanged(Editable arg0) {
+            // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                                      int arg3) {
+            // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int a, int b, int c) {
+
+        }};
+
     public boolean validaEmail() {
         String email_content = email.getEditText().getText().toString().trim();
         Gerenciamento_Arquivo.LerUsuarioNoSD(Signup.this, usuariosList);
@@ -47,6 +69,7 @@ public class Signup extends AppCompatActivity {
 
         if (verificaEmail != null) {
             email.setError("O email já está cadastrado.");
+
             email.requestFocus();
             return false;
         } else if (email_content.isEmpty()) {
@@ -184,6 +207,7 @@ public class Signup extends AppCompatActivity {
     public void Finalizar(View v) {
         if (!validaEmail() | !validaSenha() | !validaNomeCompleto() | !validaCPF() | !validaTelefone() | !validaEstado() | !validaCidade())
             return;
+
 
         Gerenciamento_Arquivo.gravarUsuarioNoSD(Signup.this, novoUsuario.getAllInfo());
 
