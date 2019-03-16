@@ -6,13 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class signup extends AppCompatActivity {
+public class Signup extends AppCompatActivity {
 
     ArrayList<Usuario> usuariosList = new ArrayList<>();
 
@@ -45,7 +42,7 @@ public class signup extends AppCompatActivity {
 
     public boolean validaEmail() {
         String email_content = email.getEditText().getText().toString().trim();
-        Gerenciamento_Arquivo.LerUsuarioNoSD(signup.this, usuariosList);
+        Gerenciamento_Arquivo.LerUsuarioNoSD(Signup.this, usuariosList);
         Usuario verificaEmail = Gerenciamento_Arquivo.VerificaUsuarioArrayList(usuariosList, email_content);
 
         if (verificaEmail != null) {
@@ -62,6 +59,8 @@ public class signup extends AppCompatActivity {
             return false;
         } else {
             email.setError(null);
+            email.setErrorEnabled(false);
+            email.clearFocus();
             novoUsuario.setEmail(email_content);
             return true;
         }
@@ -73,6 +72,7 @@ public class signup extends AppCompatActivity {
 
         if (senha_content.isEmpty()) {
             senha.setError("Você precisa definir uma senha.");
+            confirmSenha.setError("As senhas precisam ser iguais.");
             senha.requestFocus();
             return false;
         } else if (senha_content.length() < 5) {
@@ -86,7 +86,11 @@ public class signup extends AppCompatActivity {
             return false;
         } else {
             senha.setError(null);
+            senha.setErrorEnabled(false);
+            senha.clearFocus();
             confirmSenha.setError(null);
+            confirmSenha.setErrorEnabled(false);
+            confirmSenha.clearFocus();
             novoUsuario.setSenha(senha_content);
             return true;
         }
@@ -102,6 +106,8 @@ public class signup extends AppCompatActivity {
             return false;
         } else {
             nomeCompleto.setError(null);
+            nomeCompleto.setErrorEnabled(false);
+            nomeCompleto.clearFocus();
             novoUsuario.setNomeCompleto(nomeCompleto_content);
             return true;
         }
@@ -120,6 +126,8 @@ public class signup extends AppCompatActivity {
             return false;
         } else {
             cpf.setError(null);
+            cpf.setErrorEnabled(false);
+            cpf.clearFocus();
             novoUsuario.setCpf(cpf_content);
             return true;
         }
@@ -134,6 +142,8 @@ public class signup extends AppCompatActivity {
             return false;
         } else {
             telefone.setError(null);
+            telefone.setErrorEnabled(false);
+            telefone.clearFocus();
             novoUsuario.setTelefone(telefone_content);
             return true;
         }
@@ -148,6 +158,8 @@ public class signup extends AppCompatActivity {
             return false;
         } else {
             estado.setError(null);
+            estado.setErrorEnabled(false);
+            estado.clearFocus();
             novoUsuario.setEstado(estado_content);
             return true;
         }
@@ -157,11 +169,13 @@ public class signup extends AppCompatActivity {
         String cidade_content = cidade.getEditText().getText().toString().trim();
 
         if (cidade_content.isEmpty()) {
-            estado.setError("O campo não pode estar vazio.");
-            estado.requestFocus();
+            cidade.setError("O campo não pode estar vazio.");
+            cidade.requestFocus();
             return false;
         } else {
-            estado.setError(null);
+            cidade.setError(null);
+            cidade.setErrorEnabled(false);
+            cidade.clearFocus();
             novoUsuario.setCidade(cidade_content);
             return true;
         }
@@ -171,9 +185,15 @@ public class signup extends AppCompatActivity {
         if (!validaEmail() | !validaSenha() | !validaNomeCompleto() | !validaCPF() | !validaTelefone() | !validaEstado() | !validaCidade())
             return;
 
-        Gerenciamento_Arquivo.gravarUsuarioNoSD(signup.this, novoUsuario.getAllInfo());
-        Intent intent = new Intent(signup.this, login.class);
-        startActivity(intent);
+        Gerenciamento_Arquivo.gravarUsuarioNoSD(Signup.this, novoUsuario.getAllInfo());
 
+        Bundle args = new Bundle();
+        args.putSerializable("BundleUsuario", novoUsuario);
+
+        Intent intent = new Intent(Signup.this, Login.class);
+        //intent.putExtra("Usuario", args);
+        startActivity(intent);
     }
+
+
 }

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".signup"
+    tools:context=".Signup"
     android:background="#2a3950">
 
 <LinearLayout
@@ -15,7 +15,7 @@
     android:orientation="vertical"
     android:layout_alignParentTop="true"
     android:padding="30dp"
-    tools:context=".signup"
+    tools:context=".Signup"
     android:background="#2a3950">
     <TextView
         android:id="@+id/textViewConta"
@@ -55,9 +55,12 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="@string/email_input"
-            android:textColor="@color/HintText"
+            android:textColor="@android:color/white"
             android:backgroundTint="@color/GoldenHace"
             android:inputType="textEmailAddress"
+            android:drawableStart="@drawable/ic_signup_email"
+            android:drawablePadding="5dp"
+            android:onClick=""
             />
     </android.support.design.widget.TextInputLayout>
 
@@ -75,9 +78,11 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="@string/senha_input"
-            android:textColor="@color/HintText"
+            android:textColor="@android:color/white"
             android:backgroundTint="@color/GoldenHace"
             android:inputType="textPassword"
+            android:drawableStart="@drawable/ic_signup_password"
+            android:drawablePadding="5dp"
             />
     </android.support.design.widget.TextInputLayout>
 
@@ -93,7 +98,9 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="@string/senha_confirmar"
-            android:textColor="@color/HintText"
+            android:textColor="@android:color/white"
+            android:drawableStart="@drawable/ic_signup_password"
+            android:drawablePadding="5dp"
             android:backgroundTint="@color/GoldenHace"
             android:inputType="textPassword"
             />
@@ -136,9 +143,11 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="@string/full_name"
-            android:textColor="@color/HintText"
+            android:textColor="@android:color/white"
             android:textColorHint="@color/HintText"
             android:backgroundTint="@color/GoldenHace"
+            android:drawableLeft="@drawable/ic_person"
+            android:drawablePadding="5dp"
             android:inputType="textCapWords"
             />
     </android.support.design.widget.TextInputLayout>
@@ -158,8 +167,10 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="@string/cpf"
-            android:textColor="@color/HintText"
+            android:textColor="@android:color/white"
             android:backgroundTint="@color/GoldenHace"
+            android:drawableLeft="@drawable/ic_cpf"
+            android:drawablePadding="5dp"
             android:inputType="number"
             />
     </android.support.design.widget.TextInputLayout>
@@ -178,7 +189,9 @@
             android:backgroundTint="@color/GoldenHace"
             android:hint="@string/phone_number"
             android:inputType="phone"
-            android:textColor="@color/HintText" />
+            android:drawableLeft="@drawable/ic_phone"
+            android:drawablePadding="5dp"
+            android:textColor="@android:color/white" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -195,7 +208,9 @@
             android:backgroundTint="@color/GoldenHace"
             android:hint="@string/estado"
             android:inputType="textCapWords"
-            android:textColor="@color/HintText" />
+            android:drawableLeft="@drawable/ic_estado"
+            android:drawablePadding="5dp"
+            android:textColor="@android:color/white" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -213,7 +228,9 @@
             android:backgroundTint="@color/GoldenHace"
             android:hint="@string/cidade"
             android:inputType="textCapWords"
-            android:textColor="@color/HintText" />
+            android:drawableLeft="@drawable/ic_cidade"
+            android:drawablePadding="5dp"
+            android:textColor="@android:color/white" />
     </android.support.design.widget.TextInputLayout>
 
     <Button

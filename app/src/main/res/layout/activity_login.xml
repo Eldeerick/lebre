@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2a3950"
-    tools:context=".login">
+    tools:context=".Login">
 
     <View
         android:id="@+id/view"
@@ -23,17 +23,16 @@
     <Button
         android:id="@+id/newUsuario_button"
         android:layout_width="wrap_content"
-        android:layout_height="19dp"
+        android:layout_height="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="105dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/rounded_button_nobackground"
+        android:background="@android:color/transparent"
         android:elevation="0dp"
         android:fontFamily="@font/roboto"
         android:text="@string/nova_conta_button"
         android:textColor="@android:color/background_light"
         android:textSize="14sp"
-        android:paddingHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
