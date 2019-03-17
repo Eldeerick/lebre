@@ -40,17 +40,17 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextInputLayout email = findViewById(R.id.email_input);
-                TextInputLayout senha = findViewById(R.id.senha_input);
+                email = findViewById(R.id.email_input);
+                senha = findViewById(R.id.senha_input);
 
-                String getEmail = email.getEditText().getText().toString();
-                String getSenha = senha.getEditText().getText().toString();
+                String getEmail = email.getEditText().getText().toString().trim();
+                String getSenha = senha.getEditText().getText().toString().trim();
 
                 try {
                 Gerenciamento_Arquivo.LerUsuarioNoSD(Login.this, usuariosList);
                 Usuario usuarioLogin;
                 usuarioLogin = Gerenciamento_Arquivo.VerificaUsuarioArrayList(usuariosList, getEmail, getSenha);
-                validaLogin(usuarioLogin);
+                validaLogin(usuarioLogin, email, senha);
                 }catch(Exception e){
                     Alerta(e.getMessage());
                 }
@@ -70,7 +70,7 @@ public class Login extends AppCompatActivity {
         Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
     }
 
-    private void validaLogin(Usuario usuarioLogin){
+    private void validaLogin(Usuario usuarioLogin, TextInputLayout email, TextInputLayout senha){
         if (usuarioLogin != null) {
             Alerta("Seja Bem-Vindo!");
             Bundle args = new Bundle();

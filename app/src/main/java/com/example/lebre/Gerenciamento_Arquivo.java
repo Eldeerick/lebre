@@ -84,7 +84,6 @@ public class Gerenciamento_Arquivo {
         }catch (Exception e){
 
         }
-
         return usuariosList;
     }
 

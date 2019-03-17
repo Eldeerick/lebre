@@ -8,6 +8,28 @@
     android:padding="35dp"
     tools:context=".MainScreen">
 
+    <TextView
+        android:textColor="@color/TextColor"
+        android:id="@+id/textViewNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/TextColor"
+        android:id="@+id/textViewEmail"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/TextColor"
+        android:id="@+id/textViewCPF"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/TextColor"
+        android:id="@+id/textViewEstado"/>
+
     <Button
         android:id="@+id/Emergencia_button"
         android:layout_width="match_parent"
@@ -20,14 +42,5 @@
         android:textSize="20sp"
         android:layout_marginBottom="35dp"
         android:onClick="click"
-        android:drawableLeft="@drawable/icon_launcher2"
         />
-
-    <TextView
-        android:textColor="@color/TextColor"
-        android:id="@+id/info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
 </LinearLayout>
