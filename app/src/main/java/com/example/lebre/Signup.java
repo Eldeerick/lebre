@@ -1,19 +1,23 @@
 package com.example.lebre;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ImageButton;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Signup extends AppCompatActivity {
 
     ArrayList<Usuario> usuariosList = new ArrayList<>();
+    private static final int PICK_IMAGE_REQUEST = 100;
 
     Usuario novoUsuario = new Usuario();
 
@@ -25,6 +29,7 @@ public class Signup extends AppCompatActivity {
     private TextInputLayout telefone;
     private TextInputLayout estado;
     private TextInputLayout cidade;
+    private ImageButton perfilImagem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,28 +44,47 @@ public class Signup extends AppCompatActivity {
         telefone = findViewById(R.id.phone_input);
         estado = findViewById(R.id.estado_input);
         cidade = findViewById(R.id.cidade_input);
-
+        perfilImagem = findViewById(R.id.perfilImagem);
     }
 
-    TextWatcher watch = new TextWatcher(){
+    public void pick(View v){
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        //intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch(requestCode){
+            case PICK_IMAGE_REQUEST:
+                if(resultCode == RESULT_OK){
+                    Uri selectedImage = data.getData();
 
-        @Override
-        public void afterTextChanged(Editable arg0) {
-            // TODO Auto-generated method stub
+                    // method 1
+                    try {
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+                        perfilImagem.setImageBitmap(bitmap);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
+                    // method 2
+
+                    //try {
+                    //    InputStream imageStream = getContentResolver().openInputStream(selectedImage);
+                    //    Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
+                    //    imageStream.close(;
+                    //   iv.setImageBitmap(yourSelectedImage);
+                    //} catch (FileNotFoundException e) {
+                    //    e.printStackTrace();
+                    //}
+
+                    // method 3
+                    // iv.setImageURI(selectedImage);
+                }
+                break;
         }
-
-        @Override
-        public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-                                      int arg3) {
-            // TODO Auto-generated method stub
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int a, int b, int c) {
-
-        }};
+    }
 
     public boolean validaEmail() {
         String email_content = email.getEditText().getText().toString().trim();
@@ -214,7 +238,7 @@ public class Signup extends AppCompatActivity {
         Bundle args = new Bundle();
         args.putSerializable("BundleUsuario", novoUsuario);
 
-        Intent intent = new Intent(Signup.this, Login.class);
+        Intent intent = new Intent(Signup.this, MainScreen.class);
         intent.putExtra("Usuario", args);
         startActivity(intent);
         finish();

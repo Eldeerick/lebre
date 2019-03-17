@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".Signup"
     android:background="@color/Background">
@@ -130,6 +130,15 @@
         android:background="@color/GoldenHace"
         android:backgroundTint="@color/GoldenHace"
         />
+
+    <ImageButton
+        android:id="@+id/perfilImagem"
+        android:background="@drawable/imagerounded"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:onClick="pick"
+        tools:src="@drawable/ic_person_24px" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/nome_completo_input"

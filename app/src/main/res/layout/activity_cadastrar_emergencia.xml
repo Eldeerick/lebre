@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Background"
     android:orientation="vertical"
     android:padding="35dp"
-    tools:context=".CadastrarEmergencia">
+    tools:context=".MainScreen">
 
     <Button
         android:id="@+id/Emergencia_button"
@@ -19,7 +18,10 @@
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
-        android:layout_marginBottom="35dp"/>
+        android:layout_marginBottom="35dp"
+        android:onClick="click"
+        android:drawableLeft="@drawable/icon_launcher2"
+        />
 
     <TextView
         android:textColor="@color/TextColor"

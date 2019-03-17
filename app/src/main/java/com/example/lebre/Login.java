@@ -1,14 +1,12 @@
 package com.example.lebre;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -18,18 +16,24 @@ public class Login extends AppCompatActivity {
 
     ArrayList<Usuario> usuariosList = new ArrayList();
 
+    private Button login;
+    private Button esqueceuSenha;
+    private Button cadastro;
+    private TextInputLayout email;
+    private TextInputLayout senha;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button login = findViewById(R.id.login_button);
+        login = findViewById(R.id.login_button);
 
-        Button esqueceuSenha = findViewById(R.id.esquecerSenha);
+        esqueceuSenha = findViewById(R.id.esquecerSenha);
         esqueceuSenha.setPaintFlags(esqueceuSenha.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         esqueceuSenha.getPaint().setUnderlineText(true);
 
-        Button cadastro = findViewById(R.id.newUsuario_button);
+        cadastro = findViewById(R.id.newUsuario_button);
         cadastro.setPaintFlags(cadastro.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         cadastro.getPaint().setUnderlineText(true);
 
@@ -45,44 +49,41 @@ public class Login extends AppCompatActivity {
                 try {
                 Gerenciamento_Arquivo.LerUsuarioNoSD(Login.this, usuariosList);
                 Usuario usuarioLogin;
-
                 usuarioLogin = Gerenciamento_Arquivo.VerificaUsuarioArrayList(usuariosList, getEmail, getSenha);
-
-                    if (usuarioLogin == null) {
-                        Alerta(getApplicationContext(), " Não encontrado, tente novamente ou cadastre-se.");
-                    } else {
-                        Alerta(getApplicationContext(), "Seja Bem-Vindo!");
-                        Bundle args = new Bundle();
-                        args.putSerializable("BundleUsuario", usuarioLogin);
-
-                        Intent intent = new Intent(Login.this, CadastrarEmergencia.class);
-                        intent.putExtra("Usuario", args);
-                        try {
-                            startActivity(intent);
-                        }catch(Exception e){
-                            Alerta(getApplicationContext(), e.getMessage());
-                            //finish();
-                        }
-
-                    }
+                validaLogin(usuarioLogin);
                 }catch(Exception e){
-                    Alerta(getApplicationContext(), e.getMessage());
+                    Alerta(e.getMessage());
                 }
             }
         });
 
-        try {cadastro.setOnClickListener(new View.OnClickListener() {
+        cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             Intent intent = new Intent(Login.this, Signup.class);
             startActivity(intent);
             }
-        });} catch(Exception e){
-            Alerta(Login.this, e.getLocalizedMessage());
-        }
+        });
     }
 
-    public void Alerta(Context context, String mensagem){
-        Toast.makeText(context, mensagem, Toast.LENGTH_SHORT).show();
+    public void Alerta(String mensagem){
+        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+    }
+
+    private void validaLogin(Usuario usuarioLogin){
+        if (usuarioLogin != null) {
+            Alerta("Seja Bem-Vindo!");
+            Bundle args = new Bundle();
+            args.putSerializable("BundleUsuario", usuarioLogin);
+
+            Intent intent = new Intent(Login.this, MainScreen.class);
+            intent.putExtra("Usuario", args);
+            startActivity(intent);
+            finish();
+        } else {
+            email.setError("Email não encontado");
+            senha.setError("Senha não encontrada.");
+            Alerta("Usuário não encontrado, tente novamente ou cadastre-se.");
+        }
     }
 }

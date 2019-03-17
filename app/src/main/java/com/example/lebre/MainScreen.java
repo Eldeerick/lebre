@@ -1,14 +1,11 @@
 package com.example.lebre;
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-public class CadastrarEmergencia extends AppCompatActivity {
+public class MainScreen extends AppCompatActivity {
 
     private TextView tv;
 
@@ -17,7 +14,7 @@ public class CadastrarEmergencia extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_emergencia);
 
-        tv = (TextView) findViewById(R.id.info);
+        tv = findViewById(R.id.info);
 
         Bundle args = getIntent().getBundleExtra("Usuario");
 
@@ -26,5 +23,10 @@ public class CadastrarEmergencia extends AppCompatActivity {
         if(args != null) {
             tv.setText(usuario.getAllInfo());
         }
+    }
+
+    public void click(View v){
+        //Intent intent = new Intent(MainScreen.this, DadosEmergencia.class);
+        //startActivity(intent);
     }
 }
