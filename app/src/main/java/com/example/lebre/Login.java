@@ -3,9 +3,9 @@ package com.example.lebre;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +24,11 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Button login = findViewById(R.id.login_button);
+
+        Button esqueceuSenha = findViewById(R.id.esquecerSenha);
+        esqueceuSenha.setPaintFlags(esqueceuSenha.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        esqueceuSenha.getPaint().setUnderlineText(true);
+
         Button cadastro = findViewById(R.id.newUsuario_button);
         cadastro.setPaintFlags(cadastro.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         cadastro.getPaint().setUnderlineText(true);
@@ -31,11 +36,11 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText email = findViewById(R.id.email_input);
-                EditText senha = findViewById(R.id.senha_input);
+                TextInputLayout email = findViewById(R.id.email_input);
+                TextInputLayout senha = findViewById(R.id.senha_input);
 
-                String getEmail = email.getText().toString();
-                String getSenha = senha.getText().toString();
+                String getEmail = email.getEditText().getText().toString();
+                String getSenha = senha.getEditText().getText().toString();
 
                 try {
                 Gerenciamento_Arquivo.LerUsuarioNoSD(Login.this, usuariosList);
@@ -49,9 +54,16 @@ public class Login extends AppCompatActivity {
                         Alerta(getApplicationContext(), "Seja Bem-Vindo!");
                         Bundle args = new Bundle();
                         args.putSerializable("BundleUsuario", usuarioLogin);
-                        Intent intent = new Intent(Login.this, Signup.class);
-                        //intent.putExtra("Usuario", args);
-                        startActivity(intent);
+
+                        Intent intent = new Intent(Login.this, CadastrarEmergencia.class);
+                        intent.putExtra("Usuario", args);
+                        try {
+                            startActivity(intent);
+                        }catch(Exception e){
+                            Alerta(getApplicationContext(), e.getMessage());
+                            //finish();
+                        }
+
                     }
                 }catch(Exception e){
                     Alerta(getApplicationContext(), e.getMessage());

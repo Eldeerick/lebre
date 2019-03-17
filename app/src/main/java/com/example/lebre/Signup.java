@@ -215,8 +215,9 @@ public class Signup extends AppCompatActivity {
         args.putSerializable("BundleUsuario", novoUsuario);
 
         Intent intent = new Intent(Signup.this, Login.class);
-        //intent.putExtra("Usuario", args);
+        intent.putExtra("Usuario", args);
         startActivity(intent);
+        finish();
     }
 
 
