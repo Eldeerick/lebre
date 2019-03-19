@@ -22,4 +22,14 @@
 
     <string name="emergencia">EMERGÊNCIA</string>
     <string name="title_activity_dados_emergencia">Dados da Emergência</string>
+
+    <string-array name="tipos_ocorrencia">
+        <item>Agressão Física</item>
+        <item>Roubo</item>
+        <item>Acidente Rodoviário</item>
+        <item>Incêndio</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -20,17 +20,17 @@ public class MainScreen extends AppCompatActivity {
         tvNome = findViewById(R.id.textViewNome);
         tvCPF = findViewById(R.id.textViewCPF);
         tvEstado = findViewById(R.id.textViewEstado);
+
         Bundle args = getIntent().getBundleExtra("Usuario");
 
         Usuario usuario = (Usuario) args.getSerializable("BundleUsuario");
-
         tvNome.setText("Olá, " + usuario.getNomeCompleto() + ".");
         tvCPF.setText("CPF: " + usuario.getCpf());
         tvEstado.setText("Estado: " + usuario.getEstado());
     }
 
     public void click(View v){
-        //Intent intent = new Intent(MainScreen.this, DadosEmergencia.class);
-        //startActivity(intent);
+        Intent intent = new Intent(MainScreen.this, CadastrarEmergencia.class);
+        startActivity(intent);
     }
 }

@@ -44,46 +44,6 @@ public class Signup extends AppCompatActivity {
         telefone = findViewById(R.id.phone_input);
         estado = findViewById(R.id.estado_input);
         cidade = findViewById(R.id.cidade_input);
-        perfilImagem = findViewById(R.id.perfilImagem);
-    }
-
-    public void pick(View v){
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        //intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("image/*");
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch(requestCode){
-            case PICK_IMAGE_REQUEST:
-                if(resultCode == RESULT_OK){
-                    Uri selectedImage = data.getData();
-
-                    // method 1
-                    try {
-                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
-                        perfilImagem.setImageBitmap(bitmap);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    // method 2
-
-                    //try {
-                    //    InputStream imageStream = getContentResolver().openInputStream(selectedImage);
-                    //    Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
-                    //    imageStream.close(;
-                    //   iv.setImageBitmap(yourSelectedImage);
-                    //} catch (FileNotFoundException e) {
-                    //    e.printStackTrace();
-                    //}
-
-                    // method 3
-                    // iv.setImageURI(selectedImage);
-                }
-                break;
-        }
     }
 
     public boolean validaEmail() {
@@ -141,7 +101,6 @@ public class Signup extends AppCompatActivity {
             novoUsuario.setSenha(senha_content);
             return true;
         }
-
     }
 
     public boolean validaNomeCompleto() {
