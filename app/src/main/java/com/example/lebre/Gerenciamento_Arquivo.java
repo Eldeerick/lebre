@@ -53,7 +53,7 @@ public class Gerenciamento_Arquivo {
 
             File file = new File(root, ocorrenciasArq);
             FileWriter writer = new FileWriter(file, true);
-            writer.append(conteudo + ";\n");
+            writer.append(conteudo);
             writer.flush();
             writer.close();
         } catch (IOException e) {
@@ -61,12 +61,12 @@ public class Gerenciamento_Arquivo {
         }
     }
 
-    public static ArrayList lerOcorrenciaSD(ArrayList<String> ocorrencias){
-        String ocorrencia;
+    public static ArrayList lerOcorrenciaSD(ArrayList<Ocorrencia> ocorrencias){
+        String TipoOcorrencia, cpf, status;
         try{
             File root = new File(Environment.getExternalStorageDirectory(), diretorio);
 
-            File file = new File(root, usuariosArq);
+            File file = new File(root, ocorrenciasArq);
             FileReader reader = new FileReader(file);
             BufferedReader br = new BufferedReader(reader);
             String linha;
@@ -74,9 +74,12 @@ public class Gerenciamento_Arquivo {
             linha = br.readLine();
 
             while(linha != null) {
-                ocorrencia = linha.split(";")[0];
+                TipoOcorrencia = linha.split(";")[0];
+                cpf = linha.split(";")[1];
+                status = linha.split(";")[2];
 
-                ocorrencias.add(ocorrencia);
+                Ocorrencia getOcorrenciasfromSD = new Ocorrencia(TipoOcorrencia, cpf, status);
+                ocorrencias.add(getOcorrenciasfromSD);
                 linha = br.readLine();
             }
             reader.close();
@@ -150,6 +153,16 @@ public class Gerenciamento_Arquivo {
         }
         return null;
     }
+
+    public static ArrayList VerificaOcorrenciaArrayList(ArrayList<Ocorrencia> TodasasOcorrencias, ArrayList<Ocorrencia> ocorrenciasAMostrar, Usuario usuario){
+        for (Ocorrencia ocorrencia: TodasasOcorrencias) {
+            if(ocorrencia.getCpfUser().equals(usuario.getCpf())){
+                ocorrenciasAMostrar.add(ocorrencia);
+            }
+        }
+        return ocorrenciasAMostrar;
+    }
+
 
     public static void verificarPermissoes(Activity activity) {
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);

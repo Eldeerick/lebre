@@ -28,7 +28,7 @@
             android:text="@string/login_logo"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textSize="125dp"
+            android:textSize="125sp"
             android:typeface="normal" />
 
         <TextView
@@ -47,9 +47,6 @@
         <View
             android:layout_width="wrap_content"
             android:layout_height="3dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="15dp"
             android:background="@color/GoldenHace" />
 
         <android.support.design.widget.TextInputLayout
@@ -57,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:paddingTop="10dp"
+            android:layout_marginTop="20dp"
             android:theme="@style/TextInputLayoutAppearance"
             app:errorEnabled="true">
 

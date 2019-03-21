@@ -11,11 +11,6 @@ public class Usuario implements  Serializable{
     private String cidade = "";
     private String telefone = "";
 
-    public Usuario(String email, String senha){
-        this.email = email;
-        this.senha = senha;
-    }
-
     public Usuario(){
 
     }
@@ -23,14 +18,6 @@ public class Usuario implements  Serializable{
     public Usuario(String email, String senha, String nomeCompleto, String cpf, String telefone, String estado, String cidade){
         this.email = email;
         this.senha = senha;
-        this.nomeCompleto = nomeCompleto;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.estado = estado;
-        this.cidade = cidade;
-    }
-
-    public void setUsuarioInfo(String nomeCompleto, String cpf, String telefone, String estado, String cidade){
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
         this.telefone = telefone;

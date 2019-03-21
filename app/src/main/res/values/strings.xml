@@ -24,6 +24,12 @@
     <string name="nVitimas">Nº de vítimas</string>
     <string name="emergencia">EMERGÊNCIA</string>
     <string name="informe_a_occorrencia">INFORME A OCORRÊNCIA</string>
+    <string name="precisa_de_ajuda">Precisa de ajuda?</string>
+    <string name="ocorrencias_cadastradas">Ocorrências Cadastradas</string>
+    <string name="tipo">Tipo</string>
+    <string name="enviar_localizacao">Enviar Localização</string>
+    <string name="enviar_ocorrencia">ENVIAR OCORRÊNCIA</string>
+    <string name="gmapslogo">GMapsLogo</string>
 
     <string-array name="tipos_ocorrencia">
         <item>Selecione</item>

@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,6 +21,9 @@ public class MainScreen extends AppCompatActivity {
     private TextView tvCPF;
     private TextView tvEstado;
     private ListView ocorrencias_cadastradas;
+    private Button btnEmergencia;
+    private ArrayList<Ocorrencia> todasAsOCorrencias = new ArrayList<>();
+    private ArrayList<Ocorrencia> MostrarOcorrencias = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,20 +35,34 @@ public class MainScreen extends AppCompatActivity {
         tvCPF = findViewById(R.id.textViewCPF);
         tvEstado = findViewById(R.id.textViewEstado);
         ocorrencias_cadastradas = findViewById(R.id.listview);
+        btnEmergencia = findViewById(R.id.Emergencia_button);
 
         Bundle args = getIntent().getBundleExtra("Usuario");
-
-        Usuario usuario = (Usuario) args.getSerializable("BundleUsuario");
-        tvNome.setText("Olá, " + usuario.getNomeCompleto() + ".");
+        final Usuario usuario = (Usuario) args.getSerializable("BundleUsuario");
+        tvNome.setText("Olá, " + usuario.getNomeCompleto());
         tvEmail.setText("Email: " + usuario.getEmail());
         tvCPF.setText("CPF: " + usuario.getCpf());
         tvEstado.setText("Estado: " + usuario.getEstado());
 
-    }
+        Gerenciamento_Arquivo.lerOcorrenciaSD(todasAsOCorrencias);
 
-    public void click(View v){
-        Intent intent = new Intent(MainScreen.this, CadastrarEmergencia.class);
-        startActivityForResult(intent, REQUEST_RESULT_CODE);
+        MostrarOcorrencias = Gerenciamento_Arquivo.VerificaOcorrenciaArrayList(todasAsOCorrencias, MostrarOcorrencias, usuario);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1);
+        for(Ocorrencia ocorrencia: MostrarOcorrencias)
+            arrayAdapter.insert(ocorrencia, 0);
+        
+        ocorrencias_cadastradas.setAdapter(arrayAdapter);
+
+        btnEmergencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putSerializable("BundleUsuario", usuario);
+                Intent intent = new Intent(MainScreen.this, CadastrarEmergencia.class);
+                intent.putExtra("Usuario", args);
+                startActivityForResult(intent, REQUEST_RESULT_CODE);
+            }
+        });
     }
 
     @Override
@@ -53,13 +71,7 @@ public class MainScreen extends AppCompatActivity {
         switch(requestCode){
             case REQUEST_RESULT_CODE:
                 if(resultCode == Activity.RESULT_OK){
-                    String ocorrencia = data.getStringExtra("IntentOcorrencia");
-
-                    ArrayList<String> ocorrencias = new ArrayList<>();
-                    ocorrencias.add(ocorrencia);
-                    ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ocorrencias);
-
-                    ocorrencias_cadastradas.setAdapter(arrayAdapter);
+                    recreate();
                 }
         }
     }

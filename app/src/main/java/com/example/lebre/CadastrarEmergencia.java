@@ -45,16 +45,13 @@ public class CadastrarEmergencia extends AppCompatActivity {
                 String tipoOcorrencia = tipo_ocorrencia.getSelectedItem().toString();
                 String estado = "Aguardando Resposta";
 
-                if(tipoOcorrencia.equals("Selecione")){
-
-                }else{
-                    Gerenciamento_Arquivo.gravarOcorrenciaSD(tipoOcorrencia);
-
-                    //Bundle args = new Bundle();
-                    //args.putSerializable("BundleOcorrencia", tipoOcorrencia);
+                if(!tipoOcorrencia.equals("Selecione")){
+                    Bundle args = getIntent().getBundleExtra("Usuario");
+                    Usuario usuario = (Usuario) args.getSerializable("BundleUsuario");
+                    Ocorrencia ocorrencia = new Ocorrencia(tipoOcorrencia, usuario.getCpf(), estado);
+                    Gerenciamento_Arquivo.gravarOcorrenciaSD(ocorrencia.getAllInfo());
 
                     Intent intent = new Intent();
-                    intent.putExtra("IntentOcorrencia", tipoOcorrencia);
                     setResult(Activity.RESULT_OK, intent);
                     finish();
                 }
