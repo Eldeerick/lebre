@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="GoldenHace">#CE9858</color>
-    <color name="HintText">#8399B9</color>
-    <color name="Background">#2a3950</color>
+    <color name="HintText">#9EAEC5</color>
+    <color name="Background">#2F4260</color>
     <color name="TextColor">@android:color/white</color>
 </resources>

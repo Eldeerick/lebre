@@ -28,7 +28,7 @@
             android:text="@string/login_logo"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textSize="125sp"
+            android:textSize="125dp"
             android:typeface="normal" />
 
         <TextView
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/GoldenHace"
                 android:drawableStart="@drawable/ic_signup_email"
-                android:drawablePadding="5dp"
+                android:drawablePadding="10dp"
                 android:hint="@string/email_input"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/TextColor" />
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/GoldenHace"
                 android:drawableStart="@drawable/ic_signup_password"
-                android:drawablePadding="5dp"
+                android:drawablePadding="10dp"
                 android:hint="@string/senha_input"
                 android:inputType="textPassword"
                 android:textColor="@color/TextColor" />
